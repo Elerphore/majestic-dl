@@ -12,7 +12,7 @@ object DetectionService {
     private var lastCheckedImage: String? = null
 
     suspend fun check() {
-        while (true) {
+//        while (true) {
             delay(10)
             val lastImage = directoryList()?.sortedBy { it.name }?.lastOrNull()
 
@@ -29,8 +29,6 @@ object DetectionService {
 
                 StateService.current_state = State.CHILL
             }
-
-        }
     }
 
     private fun find(image: File): List<DetectedObject> {
@@ -38,7 +36,7 @@ object DetectionService {
         val model = modelHub.loadPretrainedModel(ONNXModels.ObjectDetection.EfficientDetD5)
 
         return model.use { detectionModel ->
-            val detectedObjects = detectionModel.detectObjects(imageFile = image, topK = 15)
+            val detectedObjects = detectionModel.detectObjects(imageFile = image, topK = 8)
 
             detectedObjects.forEach {
                 println("Found ${it.label} with probability ${it.probability}")

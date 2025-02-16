@@ -31,8 +31,9 @@ class Panel : JPanel() {
 }
 
 enum class State(val color: Color, val status: String) {
+    STOPPED(Color.RED, "STOPPED"),
     CHILL(Color.RED, "Not Working"),
-    DETECTING(Color.BLUE, "Detecting"),
+    DETECTING(Color.ORANGE, "Detecting"),
     WORKING(Color.GREEN, "Working")
 }
 
