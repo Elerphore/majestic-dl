@@ -23,7 +23,7 @@ object RobotService {
         val point = WinDef.POINT()
 
         points.forEach {
-            delay(Random.nextLong(100, 300))
+            delay(Random.nextLong(100, 150))
 
             point.x = it.x.toInt()
             point.y = it.y.toInt()
@@ -31,9 +31,9 @@ object RobotService {
             user32.SetCursorPos(it.x.toLong(), it.y.toLong())
             println("Mouse moved to (${it.x}, ${it.y})")
 
-            delay(Random.nextLong(100, 200))
+            delay(Random.nextLong(20, 50))
             robot.mousePress(InputEvent.BUTTON1_DOWN_MASK)
-            delay(Random.nextLong(100, 200))
+            delay(Random.nextLong(20, 50))
             robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK) // Release left mouse button
 
         }

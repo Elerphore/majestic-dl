@@ -25,8 +25,14 @@ fun directoryList(): Array<out File>? {
 }
 
 fun emptyDirectory() {
-    val directoryPath = "screenshots" // Replace with your directory path
-    File(directoryPath).listFiles().map {
+    val directoryPath = "screenshots"
+    val directory = File(directoryPath)
+
+    if(!directory.exists()) {
+        directory.mkdirs()
+    }
+
+    directory.listFiles().map {
         it.delete()
     }
 }

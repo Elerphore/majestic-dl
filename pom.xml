@@ -12,6 +12,7 @@
     <modules>
         <module>core</module>
         <module>learning</module>
+        <module>server</module>
     </modules>
 
 
@@ -31,7 +32,6 @@
     </repositories>
 
     <dependencies>
-
         <!--KOTLIN DL-->
         <dependency>
             <groupId>org.jetbrains.kotlinx</groupId>
